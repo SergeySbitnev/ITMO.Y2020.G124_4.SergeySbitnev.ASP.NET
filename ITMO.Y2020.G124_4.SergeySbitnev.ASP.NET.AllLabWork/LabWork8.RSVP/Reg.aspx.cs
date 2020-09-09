@@ -18,16 +18,16 @@ public partial class Reg : System.Web.UI.Page
             GuestResponse rsvp = new GuestResponse(name.Text, email.Text, phone.Text, CheckBoxYN.Checked);
             
 
-            if (CheckBoxYN.Checked)
-            {
-                Report report1 = new Report(TextBoxTitle.Text, TextBoxTextAnnot.Text);
-                rsvp.Reports.Add(report1);
-            }
-            if (TextBoxTitle2.Text != "" || TextBoxTextAnnot2.Text != "")
-            {
-                Report report2 = new Report(TextBoxTitle2.Text, TextBoxTextAnnot2.Text);
-                rsvp.Reports.Add(report2);
-            }
+            //if (CheckBoxYN.Checked)
+            //{
+            //    Report report1 = new Report(TextBoxTitle.Text, TextBoxTextAnnot.Text);
+            //    rsvp.Reports.Add(report1);
+            //}
+            //if (TextBoxTitle2.Text != "" || TextBoxTextAnnot2.Text != "")
+            //{
+            //    Report report2 = new Report(TextBoxTitle2.Text, TextBoxTextAnnot2.Text);
+            //    rsvp.Reports.Add(report2);
+            //}
 
             try
             {
@@ -37,7 +37,7 @@ public partial class Reg : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                Response.Redirect(ex.Message);
+                Response.Redirect("Ошибка " + ex.Message);
             }
 
 
