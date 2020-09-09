@@ -26,7 +26,7 @@
     </div>
     <div>
         <button type="submit">Отправить ответ на приглашение RSVP</button>
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+        <asp:ValidationSummary ID="ValidationSummary" runat="server" ShowModelStateErrors="true" />
     </div>
 
 </asp:Content>
