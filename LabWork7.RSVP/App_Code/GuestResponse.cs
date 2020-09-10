@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 public class GuestResponse
 {
-    public int GuestResponseIdId { get; set; }
+    public int GuestResponseId { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
     public string Phone { get; set; }
