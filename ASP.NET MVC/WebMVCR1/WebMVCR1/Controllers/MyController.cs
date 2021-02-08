@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Text;
 
 namespace WebMVCR1
 {
     public class MyController : Controller
     {
         //GET: Home
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+        public ViewResult Index()
+        {
+            int hour = DateTime.Now.Hour;
+            ViewBag.Greeting = hour < 12 ? "Доброе утро" : "Добрый день";
+            ViewData["Mes"] = "хорошего настроения";
+            return View();
+        }
 
         public string Start(string hel)
         {
@@ -23,7 +27,9 @@ namespace WebMVCR1
             //string res = StudyCsharp.GetFunction(0, 9);
             //string res = ExeFactorial(5);
             //string res = ExeTriangle();
-            string res = ExeCircle();
+            //string res = ExeCircle();
+            //string res = ExePolim();
+            string res = ExeCollection();
             return res;
 
         }
@@ -69,6 +75,39 @@ namespace WebMVCR1
             Circle cir1 = new Circle(3);
             string sq = String.Format("Площадь фигуры {0} равна: {1:0.##}", cir1.Name, cir1.Area);
             return sq;
+        }
+        public string ExePolim()
+        {
+            StringBuilder str = new StringBuilder();
+            Shape[] sh = {
+                new Triangle(1, 2, 3),
+                new Circle(5),
+                new Triangle(5, 6, 8)
+            };
+
+            foreach (Shape item in sh)
+            {
+                str.AppendFormat("Это фигура {0}", item.Name + "<p>");
+            }
+            return str.ToString();
+        }
+        public string ExeCollection()
+        {
+            List<Circle> cirs = new List<Circle>
+            {
+                new Circle(12),
+                new Circle(5),
+                new Circle(15),
+                new Circle(6)
+            };
+            cirs.Add(new Circle(7));
+            cirs.Sort();
+            StringBuilder str = new StringBuilder();
+            foreach (Shape item in cirs)
+            {
+                str.AppendFormat("Это фигура {0}", item.Name + "<p>");
+            }
+            return str.ToString();
         }
     }
 

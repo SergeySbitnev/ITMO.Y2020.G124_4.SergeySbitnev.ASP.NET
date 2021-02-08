@@ -5,18 +5,17 @@ using System.Web;
 
 namespace WebMVCR1
 {
-    public class Triangle
+    public class Triangle : Shape
     {
-        public double Sta { get; set; }
         public double Stb { get; set; }
         public double Stc { get; set; }
-        public string Name
+        override public string Name
         {
-            get { return String.Format("\"Треугольник со сторонами {0}, {1} и {2}\"", Sta, Stb, Stc); }
+            get { return String.Format("\"Треугольник со сторонами {0}, {1} и {2}\"", St, Stb, Stc); }
         }
         public  Triangle(double a, double b, double c)
         {
-            Sta = a;
+            St = a;
             Stb = b;
             Stc = c;
         }
@@ -24,7 +23,7 @@ namespace WebMVCR1
         {
             get
             {
-                double p = Sta + Stb + Stc;
+                double p = St + Stb + Stc;
                 return p;
             }
         }
@@ -32,7 +31,7 @@ namespace WebMVCR1
         {
             get
             {
-                double sq = Math.Sqrt(Perimeter / 2 * (Perimeter / 2 - Sta) * (Perimeter / 2 - Stb) * (Perimeter / 2 - Stc));
+                double sq = Math.Sqrt(Perimeter / 2 * (Perimeter / 2 - St) * (Perimeter / 2 - Stb) * (Perimeter / 2 - Stc));
                 return sq;
             }
         }

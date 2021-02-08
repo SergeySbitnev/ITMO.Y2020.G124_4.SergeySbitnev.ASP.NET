@@ -5,10 +5,9 @@ using System.Web;
 
 namespace WebMVCR1
 {
-    public class Circle
+    public class Circle : Shape, IComparable<Circle>
     {
-        public double St { get; set; }
-        public string Name
+        override public string Name
         {
             get { return String.Format("\"Окружность с радиусом {0}\"", St); }
         }
@@ -31,6 +30,13 @@ namespace WebMVCR1
                 double sq = Math.PI * St * St;
                 return sq;
             }
+        }
+        public int CompareTo(Circle other)
+        {
+            if (this.Area == other.Area) return 0;
+            else if (this.Area > other.Area) return 1;
+            else return -1;
+
         }
     }
 }
