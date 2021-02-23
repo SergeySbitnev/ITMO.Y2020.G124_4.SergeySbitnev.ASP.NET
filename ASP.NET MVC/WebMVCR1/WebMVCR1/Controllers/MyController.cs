@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Text;
 
+
 namespace WebMVCR1
 {
     public class MyController : Controller
@@ -17,6 +18,24 @@ namespace WebMVCR1
             ViewData["Mes"] = "хорошего настроения";
             return View();
         }
+        [HttpGet]
+        public ViewResult InputData()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ViewResult InputData(Person p)
+        {
+            db.AddResponse(p);
+            return View("Hello", p);
+        }
+        public ViewResult OutputData()
+        {
+            ViewBag.Pers = db.GetAllResponses;
+            ViewBag.Count = db.NumberOfPerson;
+            return View("ListPerson");
+        }
+        private static PersonRepository db = new PersonRepository();
 
         public string Start(string hel)
         {
