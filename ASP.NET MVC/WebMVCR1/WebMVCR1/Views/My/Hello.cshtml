@@ -1,10 +1,19 @@
 ﻿@model WebMVCR1.Person
 
 @{
-    Layout = null;
+    //Layout = "~/Views/_BasicLayout.cshtml";
+    ViewBag.Title = "Привет";
 }
 
-<!DOCTYPE html>
+<div>
+    <h1>Здравствуйте, @Model.ToString()!</h1>
+    <p>
+        @Html.ActionLink("На главную", "Index")
+    </p>
+</div>
+
+
+@*<!DOCTYPE html>
 
 <html>
 <head>
@@ -19,4 +28,4 @@
         </p>
     </div>
 </body>
-</html>
+</html>*@
